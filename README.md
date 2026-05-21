@@ -20,3 +20,8 @@ You can view the live website here:
 ├── style.css         # Modern minimalist styling & responsive grids
 ├── script.js        # Mathematical card physics & UI micro-interactions
 └── README.md         # Documentation & Live Demo link
+
+🧑‍💻 About Me
+I am a passionate developer focused on building scalable backend solutions, fluid UI/UX interactions, and production-ready applications.
+
+Created by SugeToyon - 2026
