@@ -1,0 +1,587 @@
+/* Genel Sıfırlamalar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  /* YENİ RENK: Kör karanlık yerine derin, lüks bir gece tonu */
+  background-color: #080710; 
+  scroll-behavior: smooth;
+}
+
+/* SECTION 1: EŞSİZ GİRİŞ ALANI */
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 1. KATMAN: Arka plandaki resim */
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071');
+  background-size: cover;
+  background-position: center;
+  /* YENİ RENK: Resme hafif mor/mavi bir cyber tonu yedirdik */
+  filter: grayscale(40%) brightness(0.5) sepia(20%) hue-rotate(220deg);
+  z-index: 1;
+}
+
+/* 2. KATMAN: Spotlight ile açılan dev yazı katmanı */
+.text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* YENİ RENK: Yazının arkasındaki gizli katmanı asil bir lacivert/mor yaptık */
+  background-color: #0c0a1c;
+  /* YENİ RENK: Açılan dev yazılar artık siber yeşil/cyan tonunda parlayacak */
+  color: #00ffcc;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  --x: 50%;
+  --y: 50%;
+
+  -webkit-mask-image: radial-gradient(circle 180px at var(--x) var(--y), black 0%, black 98%, transparent 100%);
+  mask-image: radial-gradient(circle 180px at var(--x) var(--y), black 0%, black 98%, transparent 100%);
+}
+
+/* Devasa Yazı Biçimlendirmesi */
+.huge-text {
+  width: 90%;
+  max-width: 1400px;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  text-align: justify;
+  text-transform: uppercase;
+  word-break: break-all;
+  user-select: none;
+  opacity: 0.95;
+  /* YENİ RENK: Yazıya hafif bir neon parlama efekti verdik */
+  text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
+
+/* NAVBAR TASARIMI */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.navbar .logo {
+  /* YENİ RENK: Menü elemanları daha canlı bir platinum tonu */
+  color: #e0e0e0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  /* YENİ RENK: Üzerine gelince neon cyan rengi parlayacak */
+  color: #00ffcc;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar .nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  color: #00ffcc;
+}
+
+
+/* SECTION 2: PARALLAX CAM KARTLAR ALANI */
+.services-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  /* YENİ RENK: İkinci section arkası derin bir gece moru/siyahı karışımı */
+  background: radial-gradient(circle at center, #141124 0%, #080710 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Dev Arka Plan Yazısı */
+.giant-bg-text {
+  font-size: 11rem;
+  font-weight: 900;
+  /* YENİ RENK: Düz beyaz yerine lüks, çok hafif mor-beyaz bir ton */
+  color: #f3f0ff;
+  line-height: 0.85;
+  letter-spacing: -4px;
+  text-align: left;
+  text-transform: uppercase;
+  user-select: none;
+  z-index: 1;
+  /* YENİ RENK: Yazının arkasından yumuşak mor bir aura yayılıyor */
+  text-shadow: 0 0 40px rgba(138, 92, 246, 0.15);
+}
+
+/* Ortak Cam Kart Özellikleri */
+.glass-card {
+  position: absolute;
+  /* YENİ RENK: Cam kartların arkasındaki renk geçişi ve parlaması güçlendirildi */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Sınırlar daha belirgin şık cam */
+  border-radius: 40px;
+  backdrop-filter: blur(16px); /* Parlaklık için blur miktarını arttırdım */
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 2;
+  transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+  /* YENİ RENK: Kartların altına hafif bir gölge ve derinlik hissi */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.card-1 {
+  width: 320px;
+  height: 200px;
+  top: 5%;
+  left: 25%;
+  transform: rotate(-10deg);
+}
+
+.card-2 {
+  width: 350px;
+  height: 240px;
+  bottom: 15%;
+  left: 12%;
+  transform: rotate(-30deg);
+}
+
+.card-3 {
+  width: 400px;
+  height: 280px;
+  top: 22%;
+  right: 12%;
+  transform: rotate(25deg);
+}
+
+/* Alt Bilgi Yazıları */
+.info-footer {
+  position: absolute;
+  bottom: 60px;
+  width: 90%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  z-index: 3;
+}
+
+.info-col .italic-text {
+  font-style: italic;
+  font-weight: 300;
+  /* YENİ RENK: Sol alt vurgulu yazı cyan oldu */
+  color: #00ffcc; 
+}
+
+.info-col .label {
+  display: block;
+  font-size: 0.75rem;
+  /* YENİ RENK: Başlık etiketleri morumsu gri tonunda */
+  color: #6d6a85;
+  margin-bottom: 15px;
+}
+
+.info-col .sub-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6d6a85;
+  margin-top: 15px;
+}
+
+.header-col {
+  text-align: center;
+}
+/* SECTION 3: FOCUS BLUR TEXT ALANI */
+.sec3-focus-section {
+  position: relative;
+  width: 100vw;
+  /* KANKA DEĞİŞTİ: Boşluğu yok etmek için yüksekliği optimize ettik */
+  height: 160vh; 
+  /* KANKA DEĞİŞTİ: 4. section ile uyumlu lüks koyu arka plan */
+  background-color: #06050c; 
+  overflow: visible;
+}
+
+/* Yazıların ekranda sabit kalıp pürüzsüzce akmasını sağlayan kapsayıcı */
+.sec3-text-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 30px 0;
+}
+
+/* Her bir satırın devasa minimalist font ayarları */
+.sec3-line {
+  font-size: 5.5rem; 
+  font-weight: 900;
+  /* KANKA DEĞİŞTİ: Yazılar koyu arka planda parlasın diye platin beyaza çekildi */
+  color: #f3f0ff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  width: 100%;
+  white-space: nowrap;
+  user-select: none;
+  
+  transform-style: preserve-3d;
+  will-change: transform, filter, opacity;
+  transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1),
+              filter 0.2s cubic-bezier(0.1, 0.8, 0.3, 1),
+              opacity 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+/* SECTION 4: WEB & CYBER GALERİ ALANI (PREMIUM DARK MOD) */
+.sec4-projects-section {
+  position: relative;
+  width: 100vw;
+  min-height: 140vh; 
+  background-color: #06050c; 
+  /* KANKA DEĞİŞTİ: Üst taraftaki padding'i iyice daralttık ki 3. section biter bitmez projeler başlasın */
+  padding: 20px 5% 120px 5%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* İki section arasında oluşabilecek mikro tarayıcı boşluklarını sıfırlayan negatif margin */
+  margin-top: -2px;
+}
+
+/* Arka plana derinlik katması için hafif siber neon ışık sızıntıları (Aura) */
+.sec4-projects-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 255, 204, 0.03) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sec4-projects-section::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(138, 92, 246, 0.03) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Projelerin Asimetrik Grid Yapısı */
+.sec4-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px 50px; 
+  width: 100%;
+  max-width: 1300px;
+  position: relative;
+  z-index: 1; 
+}
+
+/* Ortak Kart Özellikleri */
+.sec4-project-card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Görsel Kapsayıcı ve Şık Sınırlar */
+.sec4-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #111;
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+  border-radius: 8px; 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Resimlerin Başlangıç Efektleri */
+.sec4-project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2) brightness(0.7); 
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+              filter 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Kartların Asimetrik Boyutları */
+.card-tall .sec4-image-wrapper { height: 620px; }
+.card-square .sec4-image-wrapper { height: 470px; margin-top: 60px; }
+.card-wide .sec4-image-wrapper { height: 390px; }
+.card-large .sec4-image-wrapper { height: 540px; }
+
+/* Yazı Detayları */
+.sec4-project-info {
+  margin-top: 22px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.sec4-project-info h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff; 
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.sec4-project-info p {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #888899; 
+  letter-spacing: 0.5px;
+}
+
+/* HOVER EFEKTLERİ */
+.sec4-project-card:hover img {
+  transform: scale(1.03); 
+  filter: grayscale(0%) contrast(1.05) brightness(0.95); 
+}
+
+.sec4-project-card:hover .sec4-image-wrapper {
+  border-color: rgba(0, 255, 204, 0.3); 
+  box-shadow: 0 25px 50px rgba(0, 255, 204, 0.1); 
+}
+
+.sec4-project-card:hover h3 {
+  color: #00ffcc; 
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+  .sec4-grid-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .card-square .sec4-image-wrapper {
+    margin-top: 0;
+  }
+  .card-tall .sec4-image-wrapper,
+  .card-square .sec4-image-wrapper,
+  .card-wide .sec4-image-wrapper,
+  .card-large .sec4-image-wrapper {
+    height: 380px;
+  }
+}
+/* SECTION 5: CUSTOM CYBER FOOTER */
+.sec5-cyber-footer {
+  position: relative;
+  width: 100vw;
+  background-color: #06050c; /* Önceki karanlık siber alanla tam bütünlük */
+  padding: 120px 5% 40px 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.03); /* Üst section'dan sızan çok hafif lüks çizgi */
+}
+
+.sec5-footer-content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Devasa Başlık Tasarımı */
+.sec5-main-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* "HEAR FROM YOU" Kısmını Canlandırıyoruz */
+.sec5-main-title span {
+  color: #00ffcc; /* Projenin ana neon yeşil/cyan vurgusu */
+  text-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+}
+
+.sec5-subtitle {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #888899;
+  max-width: 500px;
+  margin-bottom: 50px;
+  line-height: 1.5;
+}
+
+/* Siber E-posta Formu */
+.sec5-input-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px; /* Tam yuvarlak premium kapsül */
+  padding: 8px 8px 8px 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  margin-bottom: 100px;
+}
+
+.sec5-email-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sec5-email-input::placeholder {
+  color: #555566;
+}
+
+/* Ok Butonu ve Hover Animasyonu */
+.sec5-submit-btn {
+  background: #ffffff;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #06050c;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.sec5-submit-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* FORM HOVER DURUMLARI (Özgünlük Burası kanka) */
+.sec5-input-container:focus-within {
+  border-color: rgba(0, 255, 204, 0.4);
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.08);
+}
+
+.sec5-input-container:hover .sec5-submit-btn {
+  background: #00ffcc; /* Formun üstüne gelindiğinde buton siber yeşile döner */
+  color: #06050c;
+  transform: scale(1.05);
+}
+
+.sec5-submit-btn:hover {
+  transform: scale(1.1) rotate(-15deg) !important; /* Butona basarken hafif fırlama hissi */
+}
+
+/* Alt Bar Link Biçimlendirmesi */
+.sec5-bottom-bar {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sec5-links {
+  display: flex;
+  gap: 30px;
+}
+
+.sec5-links a {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #555566;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.sec5-links a:hover {
+  color: #00ffcc; /* Alttaki menülerde de siber yeşil hover */
+}
+
+.sec5-copy {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #444455;
+  letter-spacing: 0.5px;
+}
+
+/* Mobil Ekran Düzenlemeleri */
+@media (max-width: 768px) {
+  .sec5-main-title { font-size: 2.5rem; }
+  .sec5-bottom-bar { flex-direction: column; text-align: center; }
+  .sec5-links { justify-content: center; flex-wrap: wrap; gap: 15px; }
+}
