@@ -1,4 +1,3 @@
-/* Genel Sıfırlamalar */
 * {
   margin: 0;
   padding: 0;
@@ -9,19 +8,16 @@ body, html {
   width: 100%;
   overflow-x: hidden;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  /* YENİ RENK: Kör karanlık yerine derin, lüks bir gece tonu */
   background-color: #080710; 
   scroll-behavior: smooth;
 }
 
-/* SECTION 1: EŞSİZ GİRİŞ ALANI */
 .hero-container {
   position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-/* 1. KATMAN: Arka plandaki resim */
 .bg-image {
   position: absolute;
   top: 0;
@@ -31,21 +27,17 @@ body, html {
   background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071');
   background-size: cover;
   background-position: center;
-  /* YENİ RENK: Resme hafif mor/mavi bir cyber tonu yedirdik */
   filter: grayscale(40%) brightness(0.5) sepia(20%) hue-rotate(220deg);
   z-index: 1;
 }
 
-/* 2. KATMAN: Spotlight ile açılan dev yazı katmanı */
 .text-layer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* YENİ RENK: Yazının arkasındaki gizli katmanı asil bir lacivert/mor yaptık */
   background-color: #0c0a1c;
-  /* YENİ RENK: Açılan dev yazılar artık siber yeşil/cyan tonunda parlayacak */
   color: #00ffcc;
   z-index: 2;
   display: flex;
@@ -60,7 +52,6 @@ body, html {
   mask-image: radial-gradient(circle 180px at var(--x) var(--y), black 0%, black 98%, transparent 100%);
 }
 
-/* Devasa Yazı Biçimlendirmesi */
 .huge-text {
   width: 90%;
   max-width: 1400px;
@@ -73,11 +64,9 @@ body, html {
   word-break: break-all;
   user-select: none;
   opacity: 0.95;
-  /* YENİ RENK: Yazıya hafif bir neon parlama efekti verdik */
   text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
 }
 
-/* NAVBAR TASARIMI */
 .navbar {
   position: fixed;
   top: 0;
@@ -92,7 +81,6 @@ body, html {
 }
 
 .navbar .logo {
-  /* YENİ RENK: Menü elemanları daha canlı bir platinum tonu */
   color: #e0e0e0;
   font-size: 0.85rem;
   font-weight: 700;
@@ -102,7 +90,6 @@ body, html {
 }
 
 .navbar .logo:hover {
-  /* YENİ RENK: Üzerine gelince neon cyan rengi parlayacak */
   color: #00ffcc;
 }
 
@@ -125,12 +112,10 @@ body, html {
 }
 
 
-/* SECTION 2: PARALLAX CAM KARTLAR ALANI */
 .services-section {
   position: relative;
   width: 100vw;
   height: 100vh;
-  /* YENİ RENK: İkinci section arkası derin bir gece moru/siyahı karışımı */
   background: radial-gradient(circle at center, #141124 0%, #080710 100%);
   overflow: hidden;
   display: flex;
@@ -140,11 +125,9 @@ body, html {
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Dev Arka Plan Yazısı */
 .giant-bg-text {
   font-size: 11rem;
   font-weight: 900;
-  /* YENİ RENK: Düz beyaz yerine lüks, çok hafif mor-beyaz bir ton */
   color: #f3f0ff;
   line-height: 0.85;
   letter-spacing: -4px;
@@ -152,22 +135,18 @@ body, html {
   text-transform: uppercase;
   user-select: none;
   z-index: 1;
-  /* YENİ RENK: Yazının arkasından yumuşak mor bir aura yayılıyor */
   text-shadow: 0 0 40px rgba(138, 92, 246, 0.15);
 }
 
-/* Ortak Cam Kart Özellikleri */
 .glass-card {
   position: absolute;
-  /* YENİ RENK: Cam kartların arkasındaki renk geçişi ve parlaması güçlendirildi */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Sınırlar daha belirgin şık cam */
+  border: 1px solid rgba(255, 255, 255, 0.2); 
   border-radius: 40px;
-  backdrop-filter: blur(16px); /* Parlaklık için blur miktarını arttırdım */
+  backdrop-filter: blur(16px); 
   -webkit-backdrop-filter: blur(16px);
   z-index: 2;
   transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
-  /* YENİ RENK: Kartların altına hafif bir gölge ve derinlik hissi */
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
@@ -195,7 +174,6 @@ body, html {
   transform: rotate(25deg);
 }
 
-/* Alt Bilgi Yazıları */
 .info-footer {
   position: absolute;
   bottom: 60px;
@@ -214,14 +192,12 @@ body, html {
 .info-col .italic-text {
   font-style: italic;
   font-weight: 300;
-  /* YENİ RENK: Sol alt vurgulu yazı cyan oldu */
   color: #00ffcc; 
 }
 
 .info-col .label {
   display: block;
   font-size: 0.75rem;
-  /* YENİ RENK: Başlık etiketleri morumsu gri tonunda */
   color: #6d6a85;
   margin-bottom: 15px;
 }
@@ -236,18 +212,14 @@ body, html {
 .header-col {
   text-align: center;
 }
-/* SECTION 3: FOCUS BLUR TEXT ALANI */
 .sec3-focus-section {
   position: relative;
   width: 100vw;
-  /* KANKA DEĞİŞTİ: Boşluğu yok etmek için yüksekliği optimize ettik */
   height: 160vh; 
-  /* KANKA DEĞİŞTİ: 4. section ile uyumlu lüks koyu arka plan */
   background-color: #06050c; 
   overflow: visible;
 }
 
-/* Yazıların ekranda sabit kalıp pürüzsüzce akmasını sağlayan kapsayıcı */
 .sec3-text-wrapper {
   position: sticky;
   top: 0;
@@ -262,11 +234,9 @@ body, html {
   padding: 30px 0;
 }
 
-/* Her bir satırın devasa minimalist font ayarları */
 .sec3-line {
   font-size: 5.5rem; 
   font-weight: 900;
-  /* KANKA DEĞİŞTİ: Yazılar koyu arka planda parlasın diye platin beyaza çekildi */
   color: #f3f0ff;
   text-align: center;
   text-transform: uppercase;
@@ -283,23 +253,19 @@ body, html {
               opacity 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
 }
 
-/* SECTION 4: WEB & CYBER GALERİ ALANI (PREMIUM DARK MOD) */
 .sec4-projects-section {
   position: relative;
   width: 100vw;
   min-height: 140vh; 
   background-color: #06050c; 
-  /* KANKA DEĞİŞTİ: Üst taraftaki padding'i iyice daralttık ki 3. section biter bitmez projeler başlasın */
   padding: 20px 5% 120px 5%; 
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* İki section arasında oluşabilecek mikro tarayıcı boşluklarını sıfırlayan negatif margin */
   margin-top: -2px;
 }
 
-/* Arka plana derinlik katması için hafif siber neon ışık sızıntıları (Aura) */
 .sec4-projects-section::before {
   content: '';
   position: absolute;
@@ -324,7 +290,6 @@ body, html {
   pointer-events: none;
 }
 
-/* Projelerin Asimetrik Grid Yapısı */
 .sec4-grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -335,7 +300,6 @@ body, html {
   z-index: 1; 
 }
 
-/* Ortak Kart Özellikleri */
 .sec4-project-card {
   display: flex;
   flex-direction: column;
@@ -344,7 +308,6 @@ body, html {
   cursor: pointer;
 }
 
-/* Görsel Kapsayıcı ve Şık Sınırlar */
 .sec4-image-wrapper {
   width: 100%;
   overflow: hidden;
@@ -355,7 +318,6 @@ body, html {
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Resimlerin Başlangıç Efektleri */
 .sec4-project-card img {
   width: 100%;
   height: 100%;
@@ -365,13 +327,11 @@ body, html {
               filter 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Kartların Asimetrik Boyutları */
 .card-tall .sec4-image-wrapper { height: 620px; }
 .card-square .sec4-image-wrapper { height: 470px; margin-top: 60px; }
 .card-wide .sec4-image-wrapper { height: 390px; }
 .card-large .sec4-image-wrapper { height: 540px; }
 
-/* Yazı Detayları */
 .sec4-project-info {
   margin-top: 22px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -394,7 +354,6 @@ body, html {
   letter-spacing: 0.5px;
 }
 
-/* HOVER EFEKTLERİ */
 .sec4-project-card:hover img {
   transform: scale(1.03); 
   filter: grayscale(0%) contrast(1.05) brightness(0.95); 
@@ -409,7 +368,6 @@ body, html {
   color: #00ffcc; 
 }
 
-/* Mobil Uyumluluk */
 @media (max-width: 768px) {
   .sec4-grid-container {
     grid-template-columns: 1fr;
@@ -425,17 +383,16 @@ body, html {
     height: 380px;
   }
 }
-/* SECTION 5: CUSTOM CYBER FOOTER */
 .sec5-cyber-footer {
   position: relative;
   width: 100vw;
-  background-color: #06050c; /* Önceki karanlık siber alanla tam bütünlük */
+  background-color: #06050c; 
   padding: 120px 5% 40px 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.03); /* Üst section'dan sızan çok hafif lüks çizgi */
+  border-top: 1px solid rgba(255, 255, 255, 0.03); 
 }
 
 .sec5-footer-content {
@@ -447,7 +404,6 @@ body, html {
   text-align: center;
 }
 
-/* Devasa Başlık Tasarımı */
 .sec5-main-title {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 4rem;
@@ -459,9 +415,8 @@ body, html {
   margin-bottom: 20px;
 }
 
-/* "HEAR FROM YOU" Kısmını Canlandırıyoruz */
 .sec5-main-title span {
-  color: #00ffcc; /* Projenin ana neon yeşil/cyan vurgusu */
+  color: #00ffcc; 
   text-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
 }
 
@@ -474,7 +429,6 @@ body, html {
   line-height: 1.5;
 }
 
-/* Siber E-posta Formu */
 .sec5-input-container {
   position: relative;
   display: flex;
@@ -482,7 +436,7 @@ body, html {
   max-width: 550px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 100px; /* Tam yuvarlak premium kapsül */
+  border-radius: 100px; 
   padding: 8px 8px 8px 24px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -505,7 +459,6 @@ body, html {
   color: #555566;
 }
 
-/* Ok Butonu ve Hover Animasyonu */
 .sec5-submit-btn {
   background: #ffffff;
   border: none;
@@ -525,23 +478,21 @@ body, html {
   height: 20px;
 }
 
-/* FORM HOVER DURUMLARI (Özgünlük Burası kanka) */
 .sec5-input-container:focus-within {
   border-color: rgba(0, 255, 204, 0.4);
   box-shadow: 0 0 30px rgba(0, 255, 204, 0.08);
 }
 
 .sec5-input-container:hover .sec5-submit-btn {
-  background: #00ffcc; /* Formun üstüne gelindiğinde buton siber yeşile döner */
+  background: #00ffcc; 
   color: #06050c;
   transform: scale(1.05);
 }
 
 .sec5-submit-btn:hover {
-  transform: scale(1.1) rotate(-15deg) !important; /* Butona basarken hafif fırlama hissi */
+  transform: scale(1.1) rotate(-15deg) !important; 
 }
 
-/* Alt Bar Link Biçimlendirmesi */
 .sec5-bottom-bar {
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -569,7 +520,7 @@ body, html {
 }
 
 .sec5-links a:hover {
-  color: #00ffcc; /* Alttaki menülerde de siber yeşil hover */
+  color: #00ffcc; 
 }
 
 .sec5-copy {
@@ -579,7 +530,6 @@ body, html {
   letter-spacing: 0.5px;
 }
 
-/* Mobil Ekran Düzenlemeleri */
 @media (max-width: 768px) {
   .sec5-main-title { font-size: 2.5rem; }
   .sec5-bottom-bar { flex-direction: column; text-align: center; }
