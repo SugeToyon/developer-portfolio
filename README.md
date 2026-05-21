@@ -13,7 +13,7 @@ You can view the live website here:
 * **CSS3** - Custom grid architecture, transitions, and advanced layouts
 * **JavaScript (ES6+)** - Fluid card animations and interactive scroll components
 
-🧑‍💻 About Me
+## 🧑‍💻 About Me
 I am a passionate developer focused on building scalable backend solutions, fluid UI/UX interactions, and production-ready applications.
 
 Created by SugeToyon - 2026
